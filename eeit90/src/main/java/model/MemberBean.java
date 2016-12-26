@@ -9,8 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+import org.springframework.stereotype.Component;
+@Component(value="memberBean")
 @Entity
-@Table(name="MEMBER")
+@Table(name="MEMBER",catalog="EEIT90", schema="DBO")
+
 public class MemberBean  implements Serializable {
 	
 	private static final long SerialVersionUID = 1L;	
