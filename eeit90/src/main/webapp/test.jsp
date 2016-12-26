@@ -16,7 +16,7 @@
 WebApplicationContext context = (WebApplicationContext)
 		WebApplicationContextUtils.getWebApplicationContext(application);
 MemberDao dao = (MemberDao) context.getBean("memberDao"); 
-//MemberBean memb = dao.select("Nobi");
+//MemberBean mem= dao.select("Nobi");
 MemberBean bean= new MemberBean();
 //bean.setMember_no(8);
 bean.setAccount("sushi");
