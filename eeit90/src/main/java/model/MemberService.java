@@ -1,22 +1,27 @@
 package model;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.dao.MemberDao;
 
-@Service(value = "memberService")
+@Component(value = "memberService")
+// @Service(value = "memberService")
 @Transactional(transactionManager = "transactionManager")
 public class MemberService {
 	@Autowired
 	private MemberDao memberDAO;
 	@Autowired
-	private MemberBean memberBeanmber;
+	private MemberBean memberBean;
 
 	@Transactional(readOnly = true)
 	public MemberBean login(String account, String pwd) {
@@ -34,6 +39,7 @@ public class MemberService {
 	}
 
 	public MemberBean register(MemberBean bean) {
+
 		MemberBean result = null;
 		if (bean != null) {
 			result = memberDAO.insert(bean);
